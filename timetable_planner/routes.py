@@ -87,6 +87,9 @@ def logout():
 def delete_timetable(_id:str):
     if not (_id in User(**(current_app.db.user.find_one({"_id":session.get("_id")}))).timetables):
         abort(401)
+    
+    for subject in Timetable(**(current_app.db.timetable.find_one({"_id":_id}))).subjects:
+        current_app.db.subject.delete_one({"_id":subject})
     current_app.db.timetable.delete_one({"_id":_id})
     user_data=current_app.db.user.find_one({"_id":session.get("_id")})
     user=User(**user_data)
