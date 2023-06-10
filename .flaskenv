@@ -1,0 +1,2 @@
+FLASK_APP=timetable_planner
+FLASK_ENVIRONMENT=development
