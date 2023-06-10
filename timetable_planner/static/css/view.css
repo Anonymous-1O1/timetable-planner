@@ -1,0 +1,40 @@
+.main{
+    width:70em;
+    margin:auto;    
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.subject__details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.back__button{
+    margin-top:2em;
+}
+
+.view__back{
+    padding: 0.5em 2em;
+    border-radius: 1em;
+    text-decoration: none;
+    color:black;
+    background-color: var(--main-color);
+}
+
+.view__back:hover{
+    background-color: var(--modded-main);
+}
+
+.empty__message{
+    text-align: center;
+}
+
+

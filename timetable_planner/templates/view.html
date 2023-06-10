@@ -1,0 +1,30 @@
+{%extends "layout.html"%}
+
+{%block head_content%}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/view.css')}}">
+{%endblock%}
+
+{%block main_content%}
+    <div class="title">
+        <h2 class="title__heading">{{timetable.name}}</h2>
+        <p class="title__duration">Total duration: {{timetable.duration}} hours(s)</p>
+    </div>
+    
+    {%if subject_data%}
+    <div class="subject">
+        {%for subject in range(subject_data|length)%}
+                <div class="subject__details">
+                    <h4 class="subject__title subject__detail">{{subject+1}}) {{subject_data[subject].name}}</h4>
+                    <p class="subject__duration subject__detail">Duration: {{subject_data[subject].duration}} hour(s)</p>
+                </div>
+        {%endfor%}
+    </div>
+    {%else%}
+    <p class="empty__message">
+        You don't have any content yet.
+    </p>
+    {%endif%}
+    <div class="back__button">
+    <a class="view__back" href="{{url_for('pages.index')}}">Back</a>
+    </div>
+{%endblock%}
