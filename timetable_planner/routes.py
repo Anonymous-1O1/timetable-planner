@@ -101,7 +101,7 @@ def delete_timetable(_id:str):
 @pages.route("/timetable/<string:_id>/view")
 @login_required
 def view_timetable(_id:str):
-    if not (_id in User(**(current_app.db.user.find_one({"_is":session.get("_is")}))).timetables):
+    if not (_id in User(**(current_app.db.user.find_one({"_id":session.get("_id")}))).timetables):
         abort(401)
     timetable_data=current_app.db.timetable.find_one({"_id":_id})
     timetable=Timetable(**timetable_data)
