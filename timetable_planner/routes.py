@@ -73,7 +73,7 @@ def register():
         )
         current_app.db.user.insert_one(asdict(user))
         flash("User Registered Succesfully","success")
-        return redirect(url_for(".index"))
+        return redirect(url_for(".login"))
     return render_template("register.html",title="Timetable Planner - Register",form=form)
 
 @pages.route("/logout")
