@@ -65,7 +65,6 @@ def register():
     if form.validate_on_submit():
         if current_app.db.user.find_one({"email":form.email.data}):
             flash("Account already exist with this email","danger")
-            print("not allowed")
             return redirect(url_for(".register"))
         user=User(
             _id=uuid.uuid4().hex,
