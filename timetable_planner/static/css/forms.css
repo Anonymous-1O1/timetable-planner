@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 24.75em){
-    .form_container{
+    .form__container{
         padding:2rem;
     }
 }
