@@ -1,7 +1,6 @@
 .form{
     margin:0 auto;
     max-width:30rem;
-    border: var(--border);
     font-size: 1.2rem;
     background-color: var(--mild-color);
     border-radius: 5px;
