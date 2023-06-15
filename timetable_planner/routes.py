@@ -4,8 +4,7 @@ from timetable_planner.forms import LoginForm,RegisterForm,AddSubject,AddTimetab
 from passlib.hash import pbkdf2_sha256
 from dataclasses import asdict
 import uuid
-import functools
-import datetime
+import functools
 
 pages=Blueprint("pages",__name__,template_folder="template",static_folder="static")
 
@@ -29,9 +28,8 @@ def index():
     if form.validate_on_submit():
         timetable=Timetable(
             _id=uuid.uuid4().hex,
-            name=(form.name.data).capitalize()
-        )
-        current_app.db.timetable.insert_one(asdict(timetable))
+            name=form.name.data
+        ) current_app.db.timetable.insert_one(asdict(timetable))
         current_app.db.user.update_one({"_id":session["_id"]},{"$push":{"timetables":timetable._id}})
         return redirect(url_for(".index"))
 
@@ -125,7 +123,7 @@ def edit_timetable(_id:str):
     if form.validate_on_submit():
         subject=Subject(
             _id=uuid.uuid4().hex,
-            name=(form.name.data).capitalize(),
+            name=form.name.data,
             duration=form.duration.data
         )
         if (total_duration+subject.duration)>=24:
