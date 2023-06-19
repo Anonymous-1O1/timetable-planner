@@ -164,4 +164,12 @@ svg{
     right:0;
 }
 
+.footer__link{
+    text-decoration:none;
+    color:black;
+}
+
+.footer__link:hover{
+    color:var(--main-color);
+}
 
