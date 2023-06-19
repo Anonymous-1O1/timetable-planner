@@ -1,0 +1,48 @@
+{%from "macros/icons.html" import logo%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reset.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block head_content%}{%endblock%}
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="navbar">
+            <a class="navbar__title" href="/">
+                <div class="navbar__title-logo-nav">
+                    {{logo("navbar__title-logo")}}
+                </div>
+                <div class="navbar__title-heading-nav">
+                    <span class="navbar__title-heading navbar__title">Timetable Planner</span>
+                </div>
+            </a>
+            <nav class="nav">
+                {%if session.get("email")%}
+                    <a class="navbar__button" href="{{url_for('pages.logout')}}">
+                        <span class="navbar__button-link">Logout</span>
+                    </a>
+                {%else%}
+                    <a class="navbar__button {{'link-active' if request.path==url_for('pages.login')}}" href="{{url_for('pages.login')}}" href="{{url_for('pages.login')}}">
+                        <span class="navbar__button-link">Login</span>
+                    </a>
+                    <a class="navbar__button {{'link-active' if request.path==url_for('pages.register')}}" href="{{url_for('pages.register')}}">
+                        <span class="navbar__button-link">Register<span>
+                    </a>
+                {%endif%}
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        {%block main_content%}{%endblock%}
+    </main>
+
+    <footer class="footer">
+        <small>Copyright &copy;2023. <a class="footer__link" href="https://github.com/Anonymous-1O1/timetable-planner">Timetable Planner</a>. All rights reserved</small>
+    </footer>
+</body>
+</html>
