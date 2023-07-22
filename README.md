@@ -9,4 +9,4 @@ Features:
 
 check out the website [here](https://timetable-planner.onrender.com).
 
-(website may take up to 45s to load)
+
